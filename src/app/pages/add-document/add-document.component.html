@@ -1,0 +1,36 @@
+<form class="col-md-6" [formGroup]="formValue">
+
+    <div class="form-Add">
+      <label for="Source">Source</label>
+      <input type="text" class="form-control" formControlName="source" id="source"><br><br>
+    </div>
+    <div class="form-Add">
+        <label for="Date-Reception">Date-Reception</label>
+        <input formControlName="date" type="date" class="form-control" id="Date-Reception"><br><br>
+      </div>
+      <div class="form-Add">
+        <label for="Subject">Subject</label>
+        <input type="text" class="form-control" formControlName="subject" id="Subject"><br><br>
+      </div>
+      <div class="form-Add">
+        <label for="Subject">Document-Adresse</label>
+        <input type="text" class="form-control" formControlName="address" id="Document-Adresse"><br><br>
+      </div>
+      <div class="form-Add">
+        <label for="Subject">Document-Code</label>
+        <input type="text" class="form-control" formControlName="code" id="Document-Code"><br><br>
+      </div>
+      <div class="form-Add">
+        <label for="Subject">Document-Name</label>
+        <input type="text" class="form-control" formControlName="name" id="Document-Name"><br><br>
+      </div>
+    <button type="submit" (click)="addDocument()" class="btn btn-outline-success">Submit</button>
+  </form>
+  
+
+
+
+
+
+
+

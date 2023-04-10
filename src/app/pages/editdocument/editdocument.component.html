@@ -1,0 +1,48 @@
+<form class="col-md-6" [formGroup]="formValue">
+
+  <div class="form-Add">
+    <label for="Source">Source</label>
+    <input type="text" class="form-control" formControlName="source" id="source"><br><br>
+  </div>
+  <div class="form-Add">
+    <label for="Date-Reception">Date-Reception</label>
+    <input formControlName="date" type="date" class="form-control" id="Date-Reception"><br><br>
+  </div>
+  <div class="form-Add">
+    <label for="Subject">Subject</label>
+    <input type="text" class="form-control" formControlName="subject" id="Subject"><br><br>
+  </div>
+  <div class="form-Add">
+    <label for="Subject">Document-Adresse</label>
+    <input type="text" class="form-control" formControlName="address" id="Document-Adresse"><br><br>
+  </div>
+  <div class="form-Add">
+    <label for="Subject">Document-Code</label>
+    <input type="text" class="form-control" formControlName="code" id="Document-Code"><br><br>
+  </div>
+  <div class="form-Add">
+    <label for="Subject">Document-Name</label>
+    <input type="text" class="form-control" formControlName="name" id="Document-Name"><br><br>
+  </div>
+  <div  class="form-Add">
+    <mat-label>Reviwer:</mat-label><br><br>
+    <mat-form-field appearance="fill">
+       <mat-select formControlName="reviwer" [(ngModel)]="selectedReviwer" id="reviwer" placeholder="Select">
+          <mat-option *ngFor="let reviwer of listReviwer" [value]="reviwer">
+              {{reviwer.name}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div><br><br>
+  <div  class="form-Add">
+    <mat-label>Etat :</mat-label><br><br>
+    <mat-form-field appearance="fill">
+       <mat-select formControlName="etat" [(ngModel)]="selectedEtat" id="etat" placeholder="Select">
+          <mat-option *ngFor="let etat of listEtat" [value]="etat">
+              {{etat.designation}}
+          </mat-option>
+        </mat-select>  
+    </mat-form-field>
+  </div><br><br>
+  <button type="submit" (click)="updateDocument()" class="btn btn-outline-success">Submit</button>
+</form>

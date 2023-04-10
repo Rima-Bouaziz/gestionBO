@@ -1,0 +1,30 @@
+
+<nav class="search">
+  <form class="form-inline" [formGroup]="formValue">
+    <input class="form-control mr-sm-2"  (keydown)="filter()" type="search"formControlName="search" placeholder="Search" aria-label="Search"><br>
+    
+  </form>
+</nav>
+<table class="table table-striped" mat-table [dataSource]="dataSource" >
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="designation">
+    <th mat-header-cell *matHeaderCellDef> Designation </th>
+    <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <button type="button" (click)="removeEtat(element)" class="btn btn-danger">Delete</button>
+      <button type="button" (click)="openDialogEdit(element)" class="btn btn-info">Update</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

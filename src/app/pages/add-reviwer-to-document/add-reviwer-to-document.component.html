@@ -1,0 +1,15 @@
+<form class="col-md-6" [formGroup]="formValue">
+    <div  class="form-Add">
+      <mat-label>Reviwer:</mat-label><br><br>
+      <mat-form-field appearance="fill">
+         <mat-select formControlName="reviwer" [(ngModel)]="selectedReviwer" id="reviwer" placeholder="Select">
+            <mat-option *ngFor="let reviwer of listReviwer" [value]="reviwer">
+                {{reviwer.name}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div><br><br>
+    
+    <button type="submit" (click)="addReviwerToDocument()" class="btn btn-outline-success">Submit</button>
+  </form>
+  

@@ -1,0 +1,58 @@
+<nav class="search">
+    <form class="form-inline" [formGroup]="formValue">
+      <input class="form-control mr-sm-2" (keydown)="filter()" formControlName="search" type="search" placeholder="Search" aria-label="Search"><br>
+      
+    </form>
+  </nav>
+  <table class="table table-striped" mat-table [dataSource]="dataSource" >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Source">
+      <th mat-header-cell *matHeaderCellDef> Source </th>
+      <td mat-cell *matCellDef="let element"> {{element.source}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dateReception">
+      <th mat-header-cell *matHeaderCellDef> Date-Reception </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateReception | date: 'YYYY-MM-dd' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="Subject">
+      <th mat-header-cell *matHeaderCellDef>Subject</th>
+      <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="Document-Adresse">
+      <th mat-header-cell *matHeaderCellDef> Document-Adresse </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef> Document-Code </th>
+      <td mat-cell *matCellDef="let element"> {{element.code }} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Document-Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="etat">
+      <th mat-header-cell *matHeaderCellDef> Document-Etat</th>
+      <td mat-cell *matCellDef="let element" > {{element.etat.designation}} </td>
+    </ng-container>
+    <ng-container matColumnDef="reviwer">
+      <th mat-header-cell *matHeaderCellDef> Document- Reviwer</th>
+      <td mat-cell *matCellDef="let element"><p *ngIf="element.reviwer!=null">{{element.reviwer.name}}</p></td>
+    </ng-container>
+   
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button type="button" (click)="removeDocument(element)" class="btn btn-danger">Delete</button>
+        <button type="button"  (click)="openDialogEdit(element)" class="btn btn-info">Update</button>
+        <button type="button" *ngIf="!element.reviwer" (click)="openDialogAddReviwer(element)" class="btn btn-outline-info">Add Reviwer</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    
